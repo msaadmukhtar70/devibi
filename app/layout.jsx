@@ -61,6 +61,7 @@ export default function RootLayout({ children }) {
         className={`${DMSans.variable} ${ClashDisplay.variable} ${Raleway.variable} ${SpaceGrotesk.variable} ${inter.variable}`}
       >
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
