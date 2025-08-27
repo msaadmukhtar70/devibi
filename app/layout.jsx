@@ -8,6 +8,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import '@/styles/globals.css';
 import '@/styles/vendors/menu.css';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const DMSans = localFont({
   src: '../fonts/DMSans-Bold.woff2',
