@@ -1,4 +1,4 @@
-// app/case-studies/page.jsx
+// app/blogs/page.jsx
 // Force SSG + ISR (daily) and block SSR
 export const revalidate = 86400;
 export const dynamic = 'error';
@@ -8,13 +8,13 @@ import Footer_01 from "@/components/footer/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { BLOGS, ALL_BLOGS } from "@/lib/blogs";
-import CaseStudiesClient from "@/components/CaseStudiesClient";
+import BlogsClient from "@/components/BlogsClient";
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Case Studies - B2B SaaS Success Stories", 
+  title: "Blogs - B2B SaaS Success Stories", 
   description: "Real case studies and insights from successful B2B SaaS launches. Learn from proven strategies and implementations.",
-  alternates: { canonical: '/case-studies' },
+  alternates: { canonical: '/blogs' },
 };
 
 function formatDate(d) {
@@ -29,7 +29,7 @@ function toParam(str = "") {
   return encodeURIComponent(str);
 }
 
-export default function CaseStudies() {
+export default function Blogs() {
   // Sort newest first for initial server-side render
   const sorted = [...BLOGS].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
@@ -74,12 +74,12 @@ export default function CaseStudies() {
           <div className="breadcrumb-wrapper">
             <div className="global-container">
               <div className="breadcrumb-block">
-                <h1 className="breadcrumb-title">Case Studies</h1>
+                <h1 className="breadcrumb-title">Blogs</h1>
                 <ul className="breadcrumb-nav">
                   <li>
                     <Link href="/">Home</Link>
                   </li>
-                  <li>Case Studies</li>
+                  <li>Blogs</li>
                 </ul>
               </div>
             </div>
@@ -94,8 +94,8 @@ export default function CaseStudies() {
               <div className="grid grid-cols-1 gap-x-6 gap-y-10 lg:grid-cols-[1fr,minmax(416px,_0.45fr)]">
                 {/* Left: Posts */}
                 <div className="flex flex-col gap-y-10 lg:gap-y-14 xl:gap-y-20">
-                  <Suspense fallback={<div>Loading case studies...</div>}>
-                    <CaseStudiesClient 
+                  <Suspense fallback={<div>Loading blogs...</div>}>
+                    <BlogsClient 
                       initialPosts={initialPosts}
                       allBlogs={ALL_BLOGS}
                       showAllPosts={true}
@@ -107,7 +107,7 @@ export default function CaseStudies() {
                 <aside className="jos flex flex-col gap-y-[30px]">
                   {/* Search (use GET so it filters the list) */}
                   <div>
-                    <form action="/case-studies" method="get" className="relative h-[60px]">
+                    <form action="/blogs" method="get" className="relative h-[60px]">
                       <input
                         type="search"
                         name="q"
@@ -135,7 +135,7 @@ export default function CaseStudies() {
                       {categories.map((c) => (
                         <li key={c.name} className="flex items-center justify-between">
                           <Link
-                            href={`/case-studies?category=${toParam(c.name.toLowerCase())}`}
+                            href={`/blogs?category=${toParam(c.name.toLowerCase())}`}
                             className="text-black hover:text-colorOrangyRed"
                           >
                             {c.name}
@@ -158,7 +158,7 @@ export default function CaseStudies() {
                           className="group flex flex-col items-center gap-x-4 gap-y-4 sm:flex-row"
                         >
                           <Link
-                            href={`/case-studies/${r.slug}`}
+                            href={`/blogs/${r.slug}`}
                             className="inline-block h-[150px] w-full overflow-hidden rounded-[5px] sm:h-[100px] sm:w-[150px]"
                           >
                             <Image
@@ -183,7 +183,7 @@ export default function CaseStudies() {
                               {formatDate(r.date)}
                             </span>
                             <Link
-                              href={`/case-studies/${r.slug}`}
+                              href={`/blogs/${r.slug}`}
                               className="text-base font-bold hover:text-colorOrangyRed"
                             >
                               {r.title}
@@ -203,7 +203,7 @@ export default function CaseStudies() {
                       {tags.map((t) => (
                         <Link
                           key={t}
-                          href={`/case-studies?tag=${toParam(t.toLowerCase())}`}
+                          href={`/blogs?tag=${toParam(t.toLowerCase())}`}
                           className="rounded-[50px] border border-[#E1E1E1] px-4 py-2 text-sm transition-all hover:border-colorOrangyRed hover:text-colorOrangyRed"
                         >
                           {t}
@@ -226,7 +226,7 @@ export default function CaseStudies() {
                         name="sidebar-newsletter"
                         id="sidebar-newsletter"
                         placeholder="Enter your email address"
-                        className="h-[60px] w-full rounded-[50px] border border-colorCodGray bg-transparent px-10 py-[15px] text-lg outline-none transition-all placeholder:text-black focus:border-colorOrangyRed"
+                        className="h-full w-full rounded-[50px] border border-colorCodGray bg-transparent px-10 py-[15px] text-lg outline-none transition-all placeholder:text-black focus:border-colorOrangyRed"
                         required
                       />
                       <button

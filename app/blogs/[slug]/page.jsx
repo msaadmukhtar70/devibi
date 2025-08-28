@@ -1,4 +1,4 @@
-// app/case-studies/[slug]/page.jsx
+// app/blogs/[slug]/page.jsx
 import Header_01 from "@/components/header/Header_01";
 import Footer_01 from "@/components/footer/Footer";
 import Image from "next/image";
@@ -28,7 +28,7 @@ export function generateMetadata({ params }) {
 }
 
 /* --------------------------------- Page --------------------------------- */
-export default function CaseStudyDetailsPage({ params }) {
+export default function BlogDetailsPage({ params }) {
   const post = getBlog(params.slug);
   if (!post) notFound();
 
@@ -64,7 +64,7 @@ export default function CaseStudyDetailsPage({ params }) {
                 <h1 className="breadcrumb-title">{post.title}</h1>
                 <ul className="breadcrumb-nav">
                   <li><Link href="/">Home</Link></li>
-                  <li><Link href="/case-studies">Case Studies</Link></li>
+                  <li><Link href="/blogs">Blogs</Link></li>
                   <li>{post.category}</li>
                 </ul>
               </div>
@@ -72,7 +72,7 @@ export default function CaseStudyDetailsPage({ params }) {
           </div>
         </section>
 
-        {/* Case Studies Section */}
+        {/* Blogs Section */}
         <div className="blog-section">
           <div className="pb-40 xl:pb-[220px]">
             <div className="global-container">
@@ -99,7 +99,7 @@ export default function CaseStudyDetailsPage({ params }) {
                       {/* Meta */}
                       <ul className="flex flex-wrap items-center gap-6">
                         <li className="relative font-semibold after:absolute after:left-full after:top-1/2 after:h-[7px] after:w-[7px] after:-translate-y-1/2 after:translate-x-2 after:rounded-full after:bg-colorCodGray last:after:hidden">
-                          <Link href={`/case-studies?category=${encodeURIComponent(post.category)}`} className="hover:text-colorOrangyRed">
+                          <Link href={`/blogs?category=${encodeURIComponent(post.category)}`} className="hover:text-colorOrangyRed">
                             {post.category}
                           </Link>
                         </li>
@@ -185,7 +185,7 @@ export default function CaseStudyDetailsPage({ params }) {
                     {/* Prev / Next */}
                     <div className="jos flex flex-col justify-between md:flex-row md:gap-x-10 xl:gap-x-24 xxl:gap-x-[196px]">
                       {prev ? (
-                        <Link href={`/case-studies/${prev.slug}`} className="group text-left">
+                        <Link href={`/blogs/${prev.slug}`} className="group text-left">
                           <span className="inline-flex items-center gap-x-3 text-[21px] font-bold transition-all duration-300 group-hover:text-colorOrangyRed">
                             <Image src="/assets/img_placeholder/th-1/icon-black-cheveron-left.svg" alt="" width={24} height={24} />
                             Previous post
@@ -194,7 +194,7 @@ export default function CaseStudyDetailsPage({ params }) {
                         </Link>
                       ) : <span />}
                       {next && (
-                        <Link href={`/case-studies/${next.slug}`} className="group text-right">
+                        <Link href={`/blogs/${next.slug}`} className="group text-right">
                           <span className="inline-flex flex-row-reverse items-center gap-x-3 text-[21px] font-bold transition-all duration-300 group-hover:text-colorOrangyRed">
                             <Image src="/assets/img_placeholder/th-1/icon-black-cheveron-right.svg" alt="" width={24} height={24} />
                             Next post
@@ -320,7 +320,7 @@ export default function CaseStudyDetailsPage({ params }) {
                     <ul>
                       {categories.map((c) => (
                         <li key={c.name} className="mb-6 last:mb-0">
-                          <Link href={`/case-studies?category=${encodeURIComponent(c.name)}`} className="text-black hover:text-colorOrangyRed">
+                          <Link href={`/blogs?category=${encodeURIComponent(c.name)}`} className="text-black hover:text-colorOrangyRed">
                             {c.name} ({String(c.count).padStart(2, "0")})
                           </Link>
                         </li>
@@ -336,9 +336,9 @@ export default function CaseStudyDetailsPage({ params }) {
                     <ul className="flex flex-col gap-y-6">
                       {recent.map((r) => (
                         <li key={r.slug} className="group flex flex-col items-center gap-x-4 gap-y-4 sm:flex-row">
-                          <Link href={`/case-studies/${r.slug}`} className="inline-block h-[150px] w-full overflow-hidden rounded-[5px] sm:h-[100px] sm:w-[150px]">
+                          <Link href={`/blogs/${r.slug}`} className="inline-block h-[150px] w-full overflow-hidden rounded-[5px] sm:h-[100px] sm:w-[150px]">
                             <Image
-                              src={r.hero?.src || "/assets/img_placeholder/th-1/case-studies-recent-img-1.jpg"}
+                              src={r.hero?.src || "/assets/img_placeholder/th-1/blogs-recent-img-1.jpg"}
                               alt={r.hero?.alt || r.title}
                               width={150}
                               height={130}
@@ -352,7 +352,7 @@ export default function CaseStudyDetailsPage({ params }) {
                               </div>
                               {formatDate(r.date)}
                             </span>
-                            <Link href={`/case-studies/${r.slug}`} className="text-base font-bold hover:text-colorOrangyRed">
+                            <Link href={`/blogs/${r.slug}`} className="text-base font-bold hover:text-colorOrangyRed">
                               {r.title}
                             </Link>
                           </div>
@@ -371,7 +371,7 @@ export default function CaseStudyDetailsPage({ params }) {
                         {post.tags.map((tag) => (
                           <li key={tag}>
                             <Link
-                              href={`/case-studies?tag=${encodeURIComponent(tag)}`}
+                              href={`/blogs?tag=${encodeURIComponent(tag)}`}
                               className="inline-block rounded-[55px] bg-black bg-opacity-5 px-5 py-1 hover:bg-colorOrangyRed hover:text-white"
                             >
                               {tag}

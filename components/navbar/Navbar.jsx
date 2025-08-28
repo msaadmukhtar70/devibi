@@ -94,7 +94,7 @@ const Navbar = ({ mobileMenu, setMobileMenu, color }) => {
             <Link href="/about" className="nav-link-item">About</Link>
           </li>
           <li className="nav-item">
-            <Link href="/case-studies" className="nav-link-item">Insights</Link>
+            <Link href="/blogs" className="nav-link-item">Insights</Link>
           </li>
           <li className="nav-item">
             <Link href="/contact" className="nav-link-item">Contact</Link>

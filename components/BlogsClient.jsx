@@ -15,7 +15,7 @@ function toParam(str = "") {
   return encodeURIComponent(str);
 }
 
-export default function CaseStudiesClient({ initialPosts, allBlogs }) {
+export default function BlogsClient({ initialPosts, allBlogs }) {
   const searchParams = useSearchParams();
   
   const q = (searchParams?.get('q') || "").toString().trim().toLowerCase();
@@ -60,7 +60,7 @@ export default function CaseStudiesClient({ initialPosts, allBlogs }) {
     const sp = new URLSearchParams(baseQuery);
     if (pageNum > 1) sp.set("page", String(pageNum));
     const queryString = sp.toString();
-    return `/case-studies${queryString ? `?${queryString}` : ''}`;
+    return `/blogs${queryString ? `?${queryString}` : ''}`;
   };
 
   const prevHref = currentPage <= 1 ? null : createPageUrl(currentPage - 1);
@@ -82,7 +82,7 @@ export default function CaseStudiesClient({ initialPosts, allBlogs }) {
             className="jos group overflow-hidden rounded-[10px] bg-white shadow-[0_4px_80px_rgba(0,0,0,0.08)]"
             data-jos_animation="fade-up"
           >
-            <Link href={`/case-studies/${p.slug}`} className="block overflow-hidden">
+            <Link href={`/blogs/${p.slug}`} className="block overflow-hidden">
               <Image
                 src={p.hero?.src || "/assets/img_placeholder/th-1/blog-main-1.jpg"}
                 alt={p.hero?.alt || p.title}
@@ -96,7 +96,7 @@ export default function CaseStudiesClient({ initialPosts, allBlogs }) {
               <ul className="flex flex-wrap items-center gap-6">
                 <li className="relative font-semibold after:absolute after:left-full after:top-1/2 after:h-[7px] after:w-[7px] after:-translate-y-1/2 after:translate-x-2 after:rounded-full after:bg-colorCodGray last:after:hidden">
                   <Link
-                    href={`/case-studies?category=${toParam(p.category)}`}
+                    href={`/blogs?category=${toParam(p.category)}`}
                     className="hover:text-colorOrangyRed"
                   >
                     {p.category}
@@ -104,7 +104,7 @@ export default function CaseStudiesClient({ initialPosts, allBlogs }) {
                 </li>
                 <li className="relative font-semibold after:absolute after:left-full after:top-1/2 after:h-[7px] after:w-[7px] after:-translate-y-1/2 after:translate-x-2 after:rounded-full after:bg-colorCodGray last:after:hidden">
                   <Link
-                    href={`/case-studies/${p.slug}`}
+                    href={`/blogs/${p.slug}`}
                     className="hover:text-colorOrangyRed"
                   >
                     {formatDate(p.date)}
@@ -114,7 +114,7 @@ export default function CaseStudiesClient({ initialPosts, allBlogs }) {
 
               {/* Title */}
               <h5 className="mb-3 mt-7 hover:text-colorOrangyRed">
-                <Link href={`/case-studies/${p.slug}`}>{p.title}</Link>
+                <Link href={`/blogs/${p.slug}`}>{p.title}</Link>
               </h5>
 
               {/* Note: ALL_BLOGS doesn't include excerpt, removed for consistency */}

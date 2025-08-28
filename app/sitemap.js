@@ -12,7 +12,7 @@ export default function sitemap() {
     '/pricing',
     '/services',
     '/portfolio',
-    '/case-studies',
+    '/blogs',
     '/team',
     '/faq-1',
   ];
@@ -27,10 +27,10 @@ export default function sitemap() {
     '/portfolio/fintech-redesign',
   ];
 
-  const caseStudyUrls = [
-    '/case-studies/ai-integration-for-startups',
-    '/case-studies/saas-design-best-practices',
-    '/case-studies/mvp-development-guide',
+  const blogUrls = [
+    '/blogs/ai-integration-for-startups',
+    '/blogs/saas-design-best-practices',
+    '/blogs/mvp-development-guide',
   ];
 
   // Combine all URLs
@@ -38,13 +38,13 @@ export default function sitemap() {
     ...staticUrls,
     ...serviceUrls,
     ...portfolioUrls,
-    ...caseStudyUrls,
+    ...blogUrls,
   ];
 
   return allUrls.map(url => ({
     url: base + url,
     lastModified: now,
-    changeFrequency: url === '/' ? 'daily' : url.includes('/case-studies') ? 'weekly' : 'monthly',
+    changeFrequency: url === '/' ? 'daily' : url.includes('/blogs') ? 'weekly' : 'monthly',
     priority: url === '/' ? 1.0 : url.includes('/services') || url === '/pricing' ? 0.8 : 0.6,
   }));
 }
