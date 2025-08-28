@@ -1,5 +1,5 @@
 import Header_01 from '@/components/header/Header_01';
-import Footer_01 from '../footer/Footer_01';
+import Footer_01 from '../footer/Footer';
 
 // eslint-disable-next-line react/prop-types
 const Wrapper_01 = ({ children }) => {

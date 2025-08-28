@@ -1,7 +1,7 @@
 // /app/services/[slug]/page.jsx
 "use client";
 
-import Footer_01 from "@/components/footer/Footer_01";
+import Footer_01 from "@/components/footer/Footer";
 import Header_01 from "@/components/header/Header_01";
 import FsLightbox from "fslightbox-react";
 import Image from "next/image";

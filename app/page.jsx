@@ -1,17 +1,24 @@
-"use client";
+// Force SSG + ISR (daily) and block SSR
+export const revalidate = 86400;
+export const dynamic = 'error';
+
+// Add minimal metadata
+export const metadata = {
+  title: 'Devibi - Launch B2B SaaS in 8-12 Weeks',
+  description: 'Transform ideas into revenue-ready B2B SaaS products. Expert design, development, and strategy services to launch faster.',
+  alternates: { canonical: '/' },
+};
 
 import React, { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Autoplay } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import useAccordion from "@/components/hooks/useAccordion";
 import Header_01 from "@/components/header/Header_01";
-import Footer_01 from "@/components/footer/Footer_01";
+import Footer_01 from "@/components/footer/Footer";
 import RecentCases from "@/components/sections/RecentCases";
+import HomeAccordion from "@/components/HomeAccordion";
+import BrandSlider from "@/components/BrandSlider";
 
 function Home() {
-  const [activeIndex, handleAccordion] = useAccordion(0);
 
   // Typography tokens (keep styles consistent site-wide)
   const H1 =
@@ -83,45 +90,7 @@ const BTN_INVERT =
                 </p>
               </div>
 
-              <div className="jos brand-slider" data-jos_animation="fade">
-                <Swiper
-                  slidesPerView={2}
-                  spaceBetween={105}
-                  autoplay={{
-                    delay: 4000,
-                    disableOnInteraction: false,
-                  }}
-                  modules={[Autoplay]}
-                  breakpoints={{
-                    768: { slidesPerView: 3 },
-                    992: { slidesPerView: 4 },
-                    1200: { slidesPerView: 5 },
-                  }}
-                >
-                  {[
-                    "brand-1.png",
-                    "brand-2.png",
-                    "brand-3.webp",
-                    "brand-4.png",
-                    "brand-5.webp",
-                    "brand-1.png",
-                    "brand-2.png",
-                    "brand-3.webp",
-                    "brand-4.png",
-                    "brand-5.webp",
-                  ].map((src, i) => (
-                    <SwiperSlide key={i}>
-                      <Image
-                        src={`/assets/img_placeholder/th-1/${src}`}
-                        alt="Customer brand"
-                        width="180"
-                        height="40"
-                        className="max-w-full"
-                      />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
+              <BrandSlider />
             </div>
 
             {/* decorative dots */}
@@ -935,48 +904,7 @@ const BTN_INVERT =
                   className="jos md:ml-10 lg:ml-20 xl:ml-32"
                   data-jos_animation="fade-left"
                 >
-                  <ul className="accordion">
-                    {[
-                      {
-                        q: "How do we start?",
-                        a:
-                          "Fill the contact form and ask for a 48 hour scope. We send a short plan with features, risks, a timeline, and a price band.",
-                      },
-                      {
-                        q: "Can you use our stack?",
-                        a:
-                          "Yes. We pick tools that fit your team and stage. We document choices and acceptance criteria so handover is clean.",
-                      },
-                      {
-                        q: "Where does AI fit?",
-                        a:
-                          "We add AI when it lifts a metric. Think onboarding helpers, search with sources, or support replies. If it does not help, we skip it.",
-                      },
-                    ].map((item, i) => (
-                      <li
-                        key={item.q}
-                        className={`accordion-item border-b-[1px] border-[#DBD6CF] pb-6 pt-6 first:pt-0 last:border-b-0 last:pb-0 ${
-                          activeIndex === i ? "active" : ""
-                        }`}
-                        onClick={() => handleAccordion(i)}
-                      >
-                        <div className="accordion-header flex items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]">
-                          <p>{item.q}</p>
-                          <div className="accordion-icon">
-                            <Image
-                              src="/assets/img_placeholder/plus.svg"
-                              width={24}
-                              height={24}
-                              alt="toggle"
-                            />
-                          </div>
-                        </div>
-                        <div className="accordion-content text-[#2C2C2C]">
-                          <p>{item.a}</p>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                  <HomeAccordion />
                 </div>
               </div>
             </div>

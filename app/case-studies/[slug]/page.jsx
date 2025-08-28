@@ -1,6 +1,6 @@
-// app/blog/[slug]/page.jsx
+// app/case-studies/[slug]/page.jsx
 import Header_01 from "@/components/header/Header_01";
-import Footer_01 from "@/components/footer/Footer_01";
+import Footer_01 from "@/components/footer/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -28,7 +28,7 @@ export function generateMetadata({ params }) {
 }
 
 /* --------------------------------- Page --------------------------------- */
-export default function BlogDetailsPage({ params }) {
+export default function CaseStudyDetailsPage({ params }) {
   const post = getBlog(params.slug);
   if (!post) notFound();
 
@@ -64,7 +64,7 @@ export default function BlogDetailsPage({ params }) {
                 <h1 className="breadcrumb-title">{post.title}</h1>
                 <ul className="breadcrumb-nav">
                   <li><Link href="/">Home</Link></li>
-                  <li><Link href="/blog">Blog</Link></li>
+                  <li><Link href="/case-studies">Case Studies</Link></li>
                   <li>{post.category}</li>
                 </ul>
               </div>
@@ -72,7 +72,7 @@ export default function BlogDetailsPage({ params }) {
           </div>
         </section>
 
-        {/* Blog Section */}
+        {/* Case Studies Section */}
         <div className="blog-section">
           <div className="pb-40 xl:pb-[220px]">
             <div className="global-container">
@@ -99,7 +99,7 @@ export default function BlogDetailsPage({ params }) {
                       {/* Meta */}
                       <ul className="flex flex-wrap items-center gap-6">
                         <li className="relative font-semibold after:absolute after:left-full after:top-1/2 after:h-[7px] after:w-[7px] after:-translate-y-1/2 after:translate-x-2 after:rounded-full after:bg-colorCodGray last:after:hidden">
-                          <Link href={`/blog?category=${encodeURIComponent(post.category)}`} className="hover:text-colorOrangyRed">
+                          <Link href={`/case-studies?category=${encodeURIComponent(post.category)}`} className="hover:text-colorOrangyRed">
                             {post.category}
                           </Link>
                         </li>
@@ -185,7 +185,7 @@ export default function BlogDetailsPage({ params }) {
                     {/* Prev / Next */}
                     <div className="jos flex flex-col justify-between md:flex-row md:gap-x-10 xl:gap-x-24 xxl:gap-x-[196px]">
                       {prev ? (
-                        <Link href={`/blog/${prev.slug}`} className="group text-left">
+                        <Link href={`/case-studies/${prev.slug}`} className="group text-left">
                           <span className="inline-flex items-center gap-x-3 text-[21px] font-bold transition-all duration-300 group-hover:text-colorOrangyRed">
                             <Image src="/assets/img_placeholder/th-1/icon-black-cheveron-left.svg" alt="" width={24} height={24} />
                             Previous post
@@ -194,7 +194,7 @@ export default function BlogDetailsPage({ params }) {
                         </Link>
                       ) : <span />}
                       {next && (
-                        <Link href={`/blog/${next.slug}`} className="group text-right">
+                        <Link href={`/case-studies/${next.slug}`} className="group text-right">
                           <span className="inline-flex flex-row-reverse items-center gap-x-3 text-[21px] font-bold transition-all duration-300 group-hover:text-colorOrangyRed">
                             <Image src="/assets/img_placeholder/th-1/icon-black-cheveron-right.svg" alt="" width={24} height={24} />
                             Next post
@@ -315,12 +315,12 @@ export default function BlogDetailsPage({ params }) {
                   {/* Categories */}
                   <div className="rounded-[10px] border border-[#EAEDF0] p-8">
                     <div className="relative mb-[30px] inline-block pb-[10px] text-lg font-semibold after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-black">
-                      Blog Categories
+                      Categories
                     </div>
                     <ul>
                       {categories.map((c) => (
                         <li key={c.name} className="mb-6 last:mb-0">
-                          <Link href={`/blog?category=${encodeURIComponent(c.name)}`} className="text-black hover:text-colorOrangyRed">
+                          <Link href={`/case-studies?category=${encodeURIComponent(c.name)}`} className="text-black hover:text-colorOrangyRed">
                             {c.name} ({String(c.count).padStart(2, "0")})
                           </Link>
                         </li>
@@ -336,9 +336,9 @@ export default function BlogDetailsPage({ params }) {
                     <ul className="flex flex-col gap-y-6">
                       {recent.map((r) => (
                         <li key={r.slug} className="group flex flex-col items-center gap-x-4 gap-y-4 sm:flex-row">
-                          <Link href={`/blog/${r.slug}`} className="inline-block h-[150px] w-full overflow-hidden rounded-[5px] sm:h-[100px] sm:w-[150px]">
+                          <Link href={`/case-studies/${r.slug}`} className="inline-block h-[150px] w-full overflow-hidden rounded-[5px] sm:h-[100px] sm:w-[150px]">
                             <Image
-                              src={r.hero?.src || "/assets/img_placeholder/th-1/blog-recent-img-1.jpg"}
+                              src={r.hero?.src || "/assets/img_placeholder/th-1/case-studies-recent-img-1.jpg"}
                               alt={r.hero?.alt || r.title}
                               width={150}
                               height={130}
@@ -352,7 +352,7 @@ export default function BlogDetailsPage({ params }) {
                               </div>
                               {formatDate(r.date)}
                             </span>
-                            <Link href={`/blog/${r.slug}`} className="text-base font-bold hover:text-colorOrangyRed">
+                            <Link href={`/case-studies/${r.slug}`} className="text-base font-bold hover:text-colorOrangyRed">
                               {r.title}
                             </Link>
                           </div>
@@ -371,7 +371,7 @@ export default function BlogDetailsPage({ params }) {
                         {post.tags.map((tag) => (
                           <li key={tag}>
                             <Link
-                              href={`/blog?tag=${encodeURIComponent(tag)}`}
+                              href={`/case-studies?tag=${encodeURIComponent(tag)}`}
                               className="inline-block rounded-[55px] bg-black bg-opacity-5 px-5 py-1 hover:bg-colorOrangyRed hover:text-white"
                             >
                               {tag}

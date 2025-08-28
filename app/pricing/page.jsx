@@ -1,15 +1,22 @@
-"use client";
-import Footer_01 from "@/components/footer/Footer_01";
+// Force SSG + ISR (daily) and block SSR
+export const revalidate = 86400;
+export const dynamic = 'error';
+
+// Add minimal metadata
+export const metadata = {
+  title: 'Pricing - Transparent B2B SaaS Development Costs',
+  description: 'Clear pricing for MVP development, design sprints, and dedicated teams. Fixed scopes and monthly retainers available.',
+  alternates: { canonical: '/pricing' },
+};
+
+import Footer_01 from "@/components/footer/Footer";
 import Header_01 from "@/components/header/Header_01";
-import useAccordion from "@/components/hooks/useAccordion";
-import useTabs from "@/components/hooks/useTabs";
+import PricingTabs from "@/components/PricingTabs";
+import PricingAccordion from "@/components/PricingAccordion";
 import Image from "next/image";
 import Link from "next/link";
 
 function Pricing() {
-	const [activeTab, handleTab] = useTabs();
-
-	const [activeIndex, handleAccordion] = useAccordion();
 	return (
 		<>
 			<Header_01 />

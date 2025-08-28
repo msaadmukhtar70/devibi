@@ -1,4 +1,15 @@
-import Footer_01 from "@/components/footer/Footer_01";
+// Force SSG + ISR (daily) and block SSR
+export const revalidate = 86400;
+export const dynamic = 'error';
+
+// Add minimal metadata
+export const metadata = {
+  title: 'Team - Expert SaaS Development Professionals',
+  description: 'Meet our senior designers, developers, and strategists who help startups build and launch successful B2B SaaS products.',
+  alternates: { canonical: '/team' },
+};
+
+import Footer_01 from "@/components/footer/Footer";
 import Header_01 from "@/components/header/Header_01";
 import Image from "next/image";
 import Link from "next/link";

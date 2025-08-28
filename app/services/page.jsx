@@ -1,13 +1,21 @@
-"use client";
+// Force SSG + ISR (daily) and block SSR
+export const revalidate = 86400;
+export const dynamic = 'error';
 
-import Footer_01 from "@/components/footer/Footer_01";
+// Add minimal metadata
+export const metadata = {
+  title: 'Services - Expert SaaS Design & Development',
+  description: 'From idea validation to launch. MVP sprints, activation optimization, and AI integration services for B2B SaaS startups.',
+  alternates: { canonical: '/services' },
+};
+
+import Footer_01 from "@/components/footer/Footer";
 import Header_01 from "@/components/header/Header_01";
-import useAccordion from "@/components/hooks/useAccordion";
+import ServicesAccordion from "@/components/ServicesAccordion";
 import Image from "next/image";
 import Link from "next/link";
 
 function Services() {
-  const [activeIndex, handleAccordion] = useAccordion(0);
 
   // Typography tokens (keep styles consistent site-wide)
   const H1 =
@@ -1021,91 +1029,7 @@ function Services() {
                   className="jos md:ml-10 lg:ml-20 xl:ml-32"
                   data-jos_animation="fade-left"
                 >
-                  <ul className="accordion">
-                    <li
-                      className={`accordion-item border-b-[1px] border-[#DBD6CF] pb-6 pt-6 first:pt-0 last:border-b-0 last:pb-0 ${
-                        activeIndex === 0 ? "active" : ""
-                      }`}
-                    >
-                      <div
-                        onClick={() => handleAccordion(0)}
-                        className="accordion-header flex cursor-pointer items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]"
-                      >
-                        <p>How do we start?</p>
-                        <div className="accordion-icon">
-                          <Image
-                            src="/assets/img_placeholder/plus.svg"
-                            alt=""
-                            width={24}
-                            height={24}
-                          />
-                        </div>
-                      </div>
-                      <div className="accordion-content text-[#2C2C2C]">
-                        <p className={BODY}>
-                          We review your context and return a 48-hour scope with
-                          features, risks, and a price band. If aligned, we kick
-                          the first sprint the following week.
-                        </p>
-                      </div>
-                    </li>
-
-                    <li
-                      className={`accordion-item border-b-[1px] border-[#DBD6CF] pb-6 pt-6 first:pt-0 last:border-b-0 last:pb-0 ${
-                        activeIndex === 1 ? "active" : ""
-                      }`}
-                    >
-                      <div
-                        onClick={() => handleAccordion(1)}
-                        className="accordion-header flex cursor-pointer items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]"
-                      >
-                        <p>What’s a typical MVP timeline?</p>
-                        <div className="accordion-icon">
-                          <Image
-                            src="/assets/img_placeholder/plus.svg"
-                            alt=""
-                            width={24}
-                            height={24}
-                          />
-                        </div>
-                      </div>
-                      <div className="accordion-content text-[#2C2C2C]">
-                        <p className={BODY}>
-                          Most MVPs ship in 8–12 weeks. Weekly demos, clear
-                          acceptance criteria, and analytics ready on day one to
-                          measure activation and retention.
-                        </p>
-                      </div>
-                    </li>
-
-                    <li
-                      className={`accordion-item border-b-[1px] border-[#DBD6CF] pb-6 pt-6 first:pt-0 last:border-b-0 last:pb-0 ${
-                        activeIndex === 2 ? "active" : ""
-                      }`}
-                    >
-                      <div
-                        onClick={() => handleAccordion(2)}
-                        className="accordion-header flex cursor-pointer items-center justify-between font-dmSans text-xl font-bold leading-[1.2] -tracking-[0.5px] text-black lg:text-[28px]"
-                      >
-                        <p>How do you price?</p>
-                        <div className="accordion-icon">
-                          <Image
-                            src="/assets/img_placeholder/plus.svg"
-                            alt=""
-                            width={24}
-                            height={24}
-                          />
-                        </div>
-                      </div>
-                      <div className="accordion-content text-[#2C2C2C]">
-                        <p className={BODY}>
-                          Fixed-price ranges for scoped projects; monthly for
-                          ongoing growth. You’ll always see burn, trade-offs,
-                          and risks—no black boxes.
-                        </p>
-                      </div>
-                    </li>
-                  </ul>
+                  <ServicesAccordion />
                 </div>
               </div>
             </div>

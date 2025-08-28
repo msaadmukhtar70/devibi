@@ -1,5 +1,5 @@
 "use client";
-import Footer_01 from "@/components/footer/Footer_01";
+import Footer_01 from "@/components/footer/Footer";
 import Header_01 from "@/components/header/Header_01";
 import useAccordion from "@/components/hooks/useAccordion";
 import Image from "next/image";

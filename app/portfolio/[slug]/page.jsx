@@ -1,5 +1,5 @@
 import Header_01 from "@/components/header/Header_01";
-import Footer_01 from "@/components/footer/Footer_01";
+import Footer_01 from "@/components/footer/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
