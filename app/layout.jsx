@@ -30,7 +30,7 @@ const SpaceGrotesk = localFont({
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata = {
-  metadataBase: new URL('https://devibi-ten.vercel.app'),
+  metadataBase: new URL('https://devibi.com'),
   title: { default: 'Devibi', template: '%s | Devibi' },
   description: 'Launch a revenue-ready B2B SaaS in 8–12 weeks.',
   alternates: { canonical: '/' },

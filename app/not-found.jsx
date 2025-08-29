@@ -15,14 +15,22 @@ function Not_Found() {
                 404
               </h1>
               <h2 className='mb-[50px]'>
-                The page you are looking for cannot be found
+                This page is either missing or was never built.
               </h2>
-              <Link
-                href='/'
-                className='button rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white'
-              >
-                Go to homepage
-              </Link>
+              <div className="flex flex-wrap items-center justify-center gap-4">
+                <Link
+                  href='/'
+                  className='button rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white'
+                >
+                  Back to Homepage
+                </Link>
+                <Link
+                  href='/services'
+                  className='button rounded-[50px] border-2 border-black bg-transparent py-4 text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white'
+                >
+                  See All Services
+                </Link>
+              </div>
             </div>
             {/* 404 Content */}
           </div>

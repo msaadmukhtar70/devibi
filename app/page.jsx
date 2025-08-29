@@ -2,10 +2,10 @@
 export const revalidate = 86400;
 export const dynamic = 'error';
 
-// Add minimal metadata
+// SEO Optimized Metadata
 export const metadata = {
-  title: 'Devibi - Launch B2B SaaS in 8-12 Weeks',
-  description: 'Transform ideas into revenue-ready B2B SaaS products. Expert design, development, and strategy services to launch faster.',
+  title: 'B2B SaaS Development & Activation Agency | Devibi',
+  description: 'We help B2B SaaS companies launch products that users actually use. Our fixed-price Launch Blueprint, MVP Sprints, and Activation Lifts de-risk your investment.',
   alternates: { canonical: '/' },
 };
 
@@ -44,23 +44,20 @@ const BTN_INVERT =
 
       <main className="main-wrapper relative overflow-hidden">
         {/* ===========================
-            HERO
+              HERO
         ============================ */}
         <section id="section-hero">
           <div className="relative z-[1] overflow-hidden rounded-bl-[30px] rounded-br-[30px] bg-colorLinenRuffle pb-20 pt-28 lg:rounded-bl-[50px] lg:rounded-br-[50px] lg:pb-24 lg:pt-32 xl:pt-40 xxl:pb-[133px] xxl:pt-[195px]">
             <div className="global-container">
               <div className="mb-14 flex flex-col items-center text-center lg:mb-20">
                 <h1 className={`jos slide-from-bottom mb-6 max-w-[1076px] ${H1}`}>
-                  Launch your B2B SaaS in 8–12 weeks
+                  Stop Building Software Nobody Uses.
                 </h1>
 
                 <p
                   className={`jos slide-from-bottom mb-11 max-w-[980px] font-semibold ${LEAD}`}
                 >
-                  We plan, build, and help you win first customers. Weekly demos
-                  and acceptance criteria keep progress clear. After launch we
-                  improve activation, onboarding, pricing, and the site. If AI
-                  helps, we add it.
+                  A product development agency for B2B SaaS founders who are tired of building features nobody uses. We help you de-risk your investment and build products that drive user activation.
                 </p>
 
                 <div
@@ -71,24 +68,36 @@ const BTN_INVERT =
                     href="/contact"
                     className="button rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
                   >
-                    Scope in 48h
+                    Book a 30-min Backlog Tear-Down
                   </Link>
                   <Link
                     href="/portfolio"
                     className="button rounded-[50px] border-2 border-black bg-transparent py-4 text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
                   >
-                    Examples
+                    See Our Work
                   </Link>
                 </div>
               </div>
 
               <div className="my-10 h-[1px] w-full bg-[#DBD6CF] lg:my-16 xl:my-20" />
-
-              <div className="jos mx-auto mb-12 max-w-[715px] text-center lg:mb-16">
-                <p className={LEAD}>
-                  Designing and developing products for startups backed by
-                </p>
+              
+              {/* This section can be used as a qualitative proof strip */}
+              <div className="jos mx-auto mb-12 max-w-[900px] text-center lg:mb-16">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                      <div className="text-center">
+                          <p className={`font-semibold ${BODY}`}>From a 10-page idea to a clickable, user-tested prototype in 7 days.</p>
+                      </div>
+                      <div className="text-center">
+                          <p className={`font-semibold ${BODY}`}>Weekly demos of working software, guaranteed.</p>
+                      </div>
+                      <div className="text-center">
+                          <p className={`font-semibold ${BODY}`}>A dedicated team laser-focused on your user activation metrics.</p>
+                      </div>
+                  </div>
               </div>
+              <div class="mx-auto mb-12 max-w-[715px] text-center lg:mb-16 jos" bis_skin_checked="1" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                <p class="text-lg leading-[1.55] lg:text-[21px]">Designing and developing products for startups backed by</p>
+                </div>
 
               <BrandSlider />
             </div>
@@ -100,14 +109,14 @@ const BTN_INVERT =
         </section>
 
         {/* ===========================
-            CORE SERVICES
+              CORE SERVICES
         ============================ */}
         <section id="section-service">
           <div className="pt-20 pb-20 xl:pb-[150px] xl:pt-[130px]">
             <div className="global-container">
               <div className="jos mb-10 lg:mb-16 xl:mb-20">
                 <div className="md:max-w-sm lg:max-w-xl xl:max-w-[746px]">
-                  <h2 className={H2}>What we deliver</h2>
+                  <h2 className={H2}>A Clear Path from Idea to Activation</h2>
                 </div>
               </div>
 
@@ -118,7 +127,7 @@ const BTN_INVERT =
                     n: "1",
                     title: "Launch Blueprint",
                     copy:
-                      "Scope, wireframes, and a plan in seven days. Clear risks and a price band.",
+                      "Validate your idea in 7 days. Get a clickable prototype, clear risks, and a fixed-price MVP scope to de-risk your investment.",
                     href: "/services/launch-blueprint",
                   },
                   {
@@ -126,7 +135,7 @@ const BTN_INVERT =
                     n: "2",
                     title: "MVP Sprint",
                     copy:
-                      "Design and build in eight to twelve weeks. Weekly demos and acceptance criteria.",
+                      "Go from approved scope to a market-ready MVP in 8–12 weeks. We build, you get weekly demos, and we ship to your first users.",
                     href: "/services/mvp-sprint",
                   },
                   {
@@ -134,15 +143,15 @@ const BTN_INVERT =
                     n: "3",
                     title: "Activation Lift",
                     copy:
-                      "Onboarding, pricing, and site tests that convert. Clear targets and tracking.",
+                      "Turn new signups into active users. We run data-driven experiments on your onboarding, pricing, and UX to reduce churn.",
                     href: "/services/activation-lift",
                   },
                   {
                     icon: "service-icon",
                     n: "4",
-                    title: "Practical AI",
+                    title: "Practical AI Pilot",
                     copy:
-                      "Onboarding helper, search with sources, and support replies. Only if it helps.",
+                      "Leverage AI to create a stickier product. We build and deploy solutions like RAG-powered search and support copilots in a 6-10 week pilot.",
                     href: "/services/practical-ai",
                   },
                 ].map((s, i) => (
@@ -207,7 +216,7 @@ const BTN_INVERT =
         </section>
 
         {/* ===========================
-            SPRINTS / MEASUREMENT (dark)
+              SPRINTS / MEASUREMENT (dark)
         ============================ */}
         <section id="funfact-section">
           <div className="mx-auto max-w-[1500px] px-5">
@@ -216,7 +225,7 @@ const BTN_INVERT =
               <div className="relative overflow-hidden rounded-[30px] lg:rounded-[50px]">
                 <Image
                   src="/assets/img_placeholder/th-1/funfact-image.jpg"
-                  alt="Sprint demo preview"
+                  alt="A B2B SaaS dashboard showing user activation metrics"
                   width="721"
                   height="784"
                   className="h-80 w-full object-cover object-center lg:h-[35rem] xl:h-full"
@@ -224,7 +233,7 @@ const BTN_INVERT =
                 <Link
                   data-fslightbox="gallery"
                   rel="noopener noreferrer"
-                  aria-label="Play sprint overview video"
+                  aria-label="Play our process overview video"
                   href="https://www.youtube.com/watch?v=3nQNiWdeH2Q"
                   className="absolute left-1/2 top-1/2 z-[1] -translate-x-1/2 -translate-y-1/2"
                 >
@@ -238,14 +247,12 @@ const BTN_INVERT =
               {/* content */}
               <div className="self-center px-6 py-16 sm:py-20 md:px-16 xl:px-10 xl:py-24 xxl:py-32 xxl:pl-16 xxl:pr-28">
                 <div className="mb-8 lg:mb-16 xl:mb-6">
-                  <h2 className={`${H2} text-white`}>Build fast and measure what matters</h2>
+                  <h2 className={`${H2} text-white`}>Radical Transparency, Delivered Weekly</h2>
                 </div>
 
                 <div className={`${LEAD} text-left text-white`}>
                   <p className="mb-7 last:mb-0">
-                    We work in tight sprints. You see weekly demos. Every
-                    feature has acceptance criteria. After launch we track
-                    activation and time to value and make focused changes.
+                    No more black box development. We work in tight, one-week sprints with a demo of working software every Friday. Every feature has clear acceptance criteria, and you have full access to our project boards. We track the metrics that matter and report on them weekly.
                   </p>
                 </div>
 
@@ -255,29 +262,22 @@ const BTN_INVERT =
                   <li>
                     <h3
                       className="text-5xl text-colorOrangyRed md:text-6xl lg:text-7xl xl:text-7xl xxl:text-[120px]"
-                      data-module="countup"
                     >
-                      <span className="start-number" data-countup-number="60">
-                        60
-                      </span>
-                      %
+                      7
                     </h3>
                     <span className="block text-lg font-normal text-white lg:text-[21px]">
-                      Trial users reach first aha
+                      Days to a clickable prototype
                     </span>
                   </li>
                   <li>
                     <h3
                       className="text-5xl text-colorOrangyRed md:text-6xl lg:text-7xl xl:text-7xl xxl:text-[120px]"
-                      data-module="countup"
                     >
-                      <span className="start-number" data-countup-number="30">
-                        30
-                      </span>
+                      100
                       %
                     </h3>
                     <span className="block text-lg font-normal text-white lg:text-[21px]">
-                      Fewer tickets per 100 new users
+                      Weekly demo success rate
                     </span>
                   </li>
                 </ul>
@@ -287,7 +287,7 @@ const BTN_INVERT =
         </section>
 
         {/* ===========================
-            MVP CONTENT SECTIONS
+              MVP CONTENT SECTIONS
         ============================ */}
         <section id="content-section-1">
           <div className="pt-40 pb-20 xl:pb-[150px]">
@@ -299,7 +299,7 @@ const BTN_INVERT =
                 >
                   <Image
                     src="/assets/img_placeholder/th-1/content-image-1.jpg"
-                    alt="MVP planning session"
+                    alt="The Devibi team collaborating on wireflows during a product discovery workshop"
                     width="526"
                     height="450"
                     className="h-auto w-full"
@@ -308,18 +308,15 @@ const BTN_INVERT =
 
                 <div className="jos order-1 md:order-2" data-jos_animation="fade-right">
                   <div className="mb-6">
-                    <h2 className={H2}>MVP to market in weeks</h2>
+                    <h2 className={H2}>De-Risk Your Product Investment</h2>
                   </div>
 
                   <div className={LEAD}>
                     <p className="mb-7 last:mb-0">
-                      We start with a one week plan. You get scope, flows, a
-                      stack, and risks. Then we build the MVP in eight to twelve
-                      weeks and ship to real users.
+                      Our fixed-price Launch Blueprint validates your idea before you commit to a full build. In one week, you get a clickable prototype, user feedback, a clear technical roadmap, and a fixed-price proposal for your MVP.
                     </p>
                     <p className="mb-7 last:mb-0">
-                      The goal is simple. Get the first customers and learn
-                      fast. No fluff. No endless cycles.
+                      This gives you a clear "go/no-go" decision point, backed by data, so you can invest with confidence or pivot before it's too late.
                     </p>
                   </div>
                 </div>
@@ -335,7 +332,7 @@ const BTN_INVERT =
                 <div className="jos order-2 overflow-hidden rounded-md" data-jos_animation="fade-left">
                   <Image
                     src="/assets/img_placeholder/th-1/content-image-2.jpg"
-                    alt="Activation improvements"
+                    alt="A user interacting with a B2B SaaS product's improved onboarding flow"
                     width="526"
                     height="450"
                     className="h-auto w-full"
@@ -344,20 +341,19 @@ const BTN_INVERT =
 
                 <div className="jos order-1" data-jos_animation="fade-right">
                   <div className="mb-6">
-                    <h2 className={H2}>After launch we fix the leaks</h2>
+                    <h2 className={H2}>An Obsession with User Activation</h2>
                   </div>
 
                   <div className={LEAD}>
                     <p className="mb-7 last:mb-0">
-                      We improve activation and time to value. We run pricing
-                      and website tests. We reduce support load.
+                      Launching is just the beginning. A successful SaaS product is one that users activate, adopt, and can't live without. That's why we don't stop at shipping code.
                     </p>
 
                     <ul className="lg:mt-12 font-dmSans text-xl leading-tight tracking-tighter text-black lg:text-[28px]">
                       {[
-                        "Onboarding in one session",
-                        "Answers from your data with sources",
-                        "Less support work for the team",
+                        "Improve onboarding completion rates",
+                        "Shorten time-to-first-value ('Aha!' moment)",
+                        "Reduce customer support load",
                       ].map((li) => (
                         <li key={li} className="mb-5 flex items-start gap-x-3">
                           <div className="mt-[2.5px] h-[30px] w-[30px]">
@@ -381,7 +377,7 @@ const BTN_INVERT =
         </section>
 
         {/* ===========================
-            PROCESS (dark, compact)
+              PROCESS (dark, compact)
         ============================ */}
         <section id="section-working-process">
           <div className="mx-auto max-w-[1500px] px-5">
@@ -389,7 +385,7 @@ const BTN_INVERT =
               <div className="py-16 sm:px-10 md:px-20 lg:py-20 xl:px-[100px] xl:py-[130px]">
                 <div className="global-container">
                   <div className="jos mx-auto mb-6 text-center md:mb-10 md:max-w-xl lg:mb-12 lg:max-w-3xl xl:max-w-[1000px]">
-                    <h2 className={`${H2} text-white`}>How we work</h2>
+                    <h2 className={`${H2} text-white`}>Our Process</h2>
                   </div>
 
                   {/* compact legend */}
@@ -417,25 +413,25 @@ const BTN_INVERT =
                       {
                         n: "01",
                         icon: "icon-black-work-process-1.svg",
-                        title: "Scope in 48 hours",
+                        title: "Launch Blueprint",
                         copy:
-                          "You get a plan with features, risks, and a price band.",
-                        href: "/contact",
+                          "We start with a fixed-price discovery to validate your idea, define scope, and de-risk the project.",
+                        href: "/services/launch-blueprint",
                       },
                       {
                         n: "02",
                         icon: "icon-black-work-process-2.svg",
-                        title: "Build in sprints",
+                        title: "MVP Sprint",
                         copy:
-                          "Weekly demos and acceptance criteria keep us honest.",
-                        href: "/services",
+                          "We build your core product in 8-12 weeks, with weekly demos to ensure we're on the right track.",
+                        href: "/services/mvp-sprint",
                       },
                       {
                         n: "03",
                         icon: "icon-black-work-process-3.svg",
-                        title: "Ship the MVP",
-                        copy: "Release, collect feedback, and start real use.",
-                        href: "/services",
+                        title: "Ship & Learn",
+                        copy: "We help you launch your MVP to your first users and start gathering critical feedback and data.",
+                        href: "/services/mvp-sprint",
                       },
                     ].map((step) => (
                       <div
@@ -478,17 +474,17 @@ const BTN_INVERT =
                         {
                           n: "04",
                           icon: "icon-black-work-process-4.svg",
-                          title: "Measure and learn",
-                          copy: "Track activation, time to value, and tickets.",
-                          href: "/services",
+                          title: "Activation Lift",
+                          copy: "We run data-driven experiments to improve your user onboarding and activation rates.",
+                          href: "/services/activation-lift",
                         },
                         {
                           n: "05",
                           icon: "icon-black-work-process-5.svg",
-                          title: "Grow activation",
+                          title: "Scale & Grow",
                           copy:
-                            "Improve onboarding, pricing, and the site with tests.",
-                          href: "/services",
+                            "We help you scale your product with confidence, whether it's adding new features, improving performance, or integrating AI.",
+                          href: "/services/scale",
                         },
                       ].map((step) => (
                         <div
@@ -539,7 +535,7 @@ const BTN_INVERT =
           </div>
         </section>
 
-                {/*...::: Who We Partner With :::...*/}
+              {/*...::: Who We Partner With :::...*/}
         <section id="who-we-partner-with">
           <div className="pb-20 pt-20 lg:pt-40">
             <div className="global-container">
@@ -642,12 +638,12 @@ const BTN_INVERT =
 
 
         {/* ===========================
-            RECENT CASES (shared cards)
+              RECENT CASES (shared cards)
         ============================ */}
         <RecentCases limit={3} />
 
-                {/* ===========================
-            TESTIMONIALS (dark)
+              {/* ===========================
+              TESTIMONIALS (dark)
         ============================ */}
         <section className="testimonial-section">
           <div className="bg-black pb-20 pt-20 xl:pb-[200px] xl:pt-[130px]">
@@ -718,7 +714,7 @@ const BTN_INVERT =
                     <div className="block">
                       <Image
                         src="/assets/img_placeholder/th-1/rating.svg"
-                        alt="rating"
+                        alt="5-star rating"
                         width="146"
                         height="25"
                       />
@@ -750,8 +746,8 @@ const BTN_INVERT =
           </div>
         </section>
 
-                {/* ===========================
-            WHY US (light)
+              {/* ===========================
+              WHY US (light)
         ============================ */}
         <section id="section-why-us">
           <div className="global-container">
@@ -759,11 +755,10 @@ const BTN_INVERT =
               className="jos mb-10 pt-40 text-center lg:mb-16 xl:mb-20"
               data-jos_animation="fade"
             >
-              <p className={`mb-3 font-semibold ${MICRO}`}>Why us</p>
+              <p className={`mb-3 font-semibold ${MICRO}`}>Why We're Different</p>
               <h2 className={H2}>Built for founders who need outcomes</h2>
               <p className={`mx-auto mt-4 max-w-[760px] text-black/70 ${LEAD}`}>
-                MVP speed, clean delivery, and growth metrics from day one. No
-                fluff.
+                We focus on MVP speed, clean delivery, and the growth metrics that matter from day one. No fluff.
               </p>
             </div>
 
@@ -773,21 +768,21 @@ const BTN_INVERT =
                   {[
                     {
                       n: "1",
-                      t: "48-hour scope",
+                      t: "Fixed-Price Discovery",
                       c:
-                        "A clear feature list, risks, and a price band so you can decide fast.",
+                        "Our Launch Blueprint de-risks your project with a clear scope, clickable prototype, and a fixed price for your MVP.",
                     },
                     {
                       n: "2",
-                      t: "MVP in 8–12 weeks",
+                      t: "Activation-Obsessed",
                       c:
-                        "Weekly demos and acceptance criteria keep the build honest and visible.",
+                        "We don't just ship code. We instrument analytics and run experiments to ensure users get to their 'Aha!' moment, faster.",
                     },
                     {
                       n: "3",
-                      t: "Owner-ready handover",
+                      t: "Owner-Ready Handover",
                       c:
-                        "Repos, docs, envs, and metrics set up so your team can run it tomorrow.",
+                        "You get clean code, clear documentation, and a process your in-house team can adopt without missing a beat.",
                     },
                   ].map((item, i) => (
                     <div
@@ -808,19 +803,19 @@ const BTN_INVERT =
                 <ul className="space-y-6">
                   {[
                     {
-                      t: "Activation first",
+                      t: "Radical Transparency",
                       c:
-                        "We track activation and time-to-value from day one and improve them weekly.",
+                        "With weekly demos and full access to our project boards, you're never in the dark.",
                     },
                     {
-                      t: "Practical AI",
+                      t: "Practical AI, Not Science Projects",
                       c:
-                        "AI where it helps: onboarding helper, search with citations, support replies.",
+                        "We focus on AI that solves real problems: better onboarding, smarter search, and efficient support.",
                     },
                     {
-                      t: "No lock-in",
+                      t: "No Lock-In, Ever",
                       c:
-                        "Clean code, plain English docs, and a change-control process that prevents surprises.",
+                        "You own the code from day one. Our process is designed to empower your team, not create dependencies.",
                     },
                   ].map((li) => (
                     <li key={li.t} className="flex items-start gap-3">
@@ -840,10 +835,10 @@ const BTN_INVERT =
 
                 <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
                   {[
-                    { k: "48h", v: "Scope & quote" },
-                    { k: "8–12w", v: "MVP" },
-                    { k: "Aha", v: "Activation" },
-                    { k: "AI", v: "When it helps" },
+                    { k: "1 Week", v: "Launch Blueprint" },
+                    { k: "8–12w", v: "MVP Sprint" },
+                    { k: "Aha!", v: "Activation Lift" },
+                    { k: "AI", v: "Practical Pilots" },
                   ].map((chip) => (
                     <div
                       key={chip.k}
@@ -865,14 +860,14 @@ const BTN_INVERT =
                 href="/contact"
                 className="button rounded-[50px] border-2 border-black bg-black py-4 text-white after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white"
               >
-                Scope in 48 hours
+                Book a 30-min Backlog Tear-Down
               </Link>
             </div>
           </div>
         </section>
 
         {/* ===========================
-            FAQ
+              FAQ
         ============================ */}
         <section className="faq-section">
           <div className="pb-20 pt-20 lg:pt-40 xl:pb-[150px]">
@@ -881,15 +876,13 @@ const BTN_INVERT =
                 <div className="jos flex flex-col" data-jos_animation="fade-right">
                   <div className="mb-6">
                     <div className="mx-auto md:mx-0 md:max-w-none">
-                      <h2 className={H2}>Questions we get a lot</h2>
+                      <h2 className={H2}>Frequently Asked Questions</h2>
                     </div>
                   </div>
 
                   <div className={LEAD}>
                     <p className="mb-7 last:mb-0">
-                      We keep things simple. Clear scope, weekly demos, and
-                      outcomes we can measure. If you need a fast plan, we can
-                      start with a 48 hour scope.
+                      We believe in clear scope, weekly demos, and measurable outcomes. If you have a different question, we're happy to answer it on a call.
                     </p>
                     <Link
                       href="/contact"
@@ -934,13 +927,7 @@ const BTN_INVERT =
               Let’s talk
             </span>
             <h2 className={`${H2} text-white`}>
-              Ship your{" "}
-              <span className="text-white/90">
-                {typeof SERVICE !== "undefined"
-                  ? SERVICE.title.toLowerCase()
-                  : "next release"}
-              </span>{" "}
-              with confidence
+              Ready to Build a Product Your Customers Love?
             </h2>
           </div>
 
@@ -994,13 +981,7 @@ const BTN_INVERT =
           {/* CTA row */}
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link href="/contact" className={BTN_INVERT}>
-              Start a project
-            </Link>
-            <Link
-              href="/contact#intro"
-              className="button rounded-[50px] border-2 border-white/25 bg-transparent py-4 text-white after:bg-white/10 hover:border-white hover:text-white"
-            >
-              Book an intro call
+              Book a 30-min Backlog Tear-Down
             </Link>
             <span className="ml-0 sm:ml-3 text-sm text-white/60">
               We reply in 24–48h.
