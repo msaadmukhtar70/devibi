@@ -132,7 +132,7 @@ function Services() {
                 <div className="mx-auto max-w-4xl">
                   <h2 className={H2}>A Service for Every Stage of Your B2B SaaS Journey</h2>
                   <p className={`${LEAD} mx-auto mt-4 max-w-2xl text-black/75`}>
-                    Whether you're validating an idea, building an MVP, or scaling your growth, we have a service to help you succeed. We bring strategy, design, and engineering under one roof so you can move faster with less risk.
+                  {"  Whether you're validating an idea, building an MVP, or scaling your growth, we have a service to help you succeed. We bring strategy, design, and engineering under one roof so you can move faster with less risk."}
                   </p>
                   <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
                     <Link href="/contact" className={BTN_PRIMARY}>
@@ -838,7 +838,7 @@ function Services() {
                   </div>
                   <div className={LEAD}>
                     <p className="mb-7 last:mb-0">
-                      We keep our process simple and transparent. Share your goals, and we'll reply with a clear plan. If you have more questions, we're happy to answer them on a call.
+                     {" We keep our process simple and transparent. Share your goals, and we'll reply with a clear plan. If you have more questions, we're happy to answer them on a call."}
                     </p>
                     <Link href="/faq" className={`${BTN_PRIMARY} mt-5`}>
                       Read All FAQs
