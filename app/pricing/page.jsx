@@ -2,10 +2,10 @@
 export const revalidate = 86400;
 export const dynamic = 'error';
 
-// Add minimal metadata
+// SEO Optimized Metadata
 export const metadata = {
-  title: 'Pricing - Transparent B2B SaaS Development Costs',
-  description: 'Clear pricing for MVP development, design sprints, and dedicated teams. Fixed scopes and monthly retainers available.',
+  title: 'Pricing & Engagement Models | Devibi',
+  description: 'De-risk your investment with transparent pricing. We offer fixed-price Sprints and flexible retainers for B2B SaaS startups who need clear outcomes without surprises.',
   alternates: { canonical: '/pricing' },
 };
 
