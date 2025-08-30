@@ -8,6 +8,7 @@ import Link from "next/link";
 import FaqClient from "./FaqClient";
 import JsonLd from "@/components/seo/JsonLd";
 import { faqLD, webPageLD, breadcrumbLD } from "@/lib/jsonld";
+import { FAQS, FAQ_DATA } from "@/lib/faq-data";
 
 // SEO Optimized Metadata
 export const metadata = {
