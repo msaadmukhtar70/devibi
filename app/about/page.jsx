@@ -14,7 +14,8 @@ import Header_01 from "@/components/header/Header_01";
 import Image from "next/image";
 import Link from "next/link";
 import React, { Fragment } from "react";
-
+import JsonLd from "@/components/seo/JsonLd";
+import { webPageLD, breadcrumbLD } from "@/lib/jsonld";
 // Typography tokens (keep styles consistent site-wide)
 const H1 =
   "font-raleway text-[40px] leading-[1.06] sm:text-[48px] lg:text-[64px] xl:text-[80px]";
@@ -33,7 +34,19 @@ const BTN_INVERT =
   "button rounded-[50px] border-2 border-white bg-white py-4 text-black after:bg-colorOrangyRed hover:border-colorOrangyRed hover:text-white";
 
 
+
+
 function About() {
+   const web = webPageLD({
+    canonical: "/about",
+    title: "About Devibi",
+    description: "We design, build and grow B2B SaaS products.",
+    type: "AboutPage",
+  });
+  const crumbs = breadcrumbLD([
+    { name: "Home", item: "/" },
+    { name: "About", item: "/about" },
+  ]);
   return (
     <>
       <Header_01 />
@@ -64,7 +77,7 @@ function About() {
                 data-jos_duration="700"
               >
                 <div className="mx-auto md:max-w-xl lg:max-w-3xl xl:max-w-[950px]">
-                  <h2 className={H2}>You don’t need a bigger team. You need a more focused one.</h2>
+                  <h2 className={H2}>You don&apos;t need a bigger team. You need a more focused one.</h2>
                   <p className={`mt-5 text-black/80 ${LEAD}`}>
                     Devibi is the senior product squad you hire when you need to ship with speed and certainty. We turn fuzzy goals into a tight scope, build a market-ready MVP in weeks, and help you iterate against the metrics that matter—activation, retention, and revenue.
                   </p>
@@ -167,10 +180,10 @@ function About() {
 
                   <div className={LEAD}>
                     <p className="mb-5">
-                      We started Devibi after seeing too many founders lose their runway to bloated teams, missed deadlines, and endless meetings that didn't move the needle. Our answer was a compact, senior-only team that integrates strategy, design, and engineering from day one.
+                      We started Devibi after seeing too many founders lose their runway to bloated teams, missed deadlines, and endless meetings that didn&apos;t move the needle. Our answer was a compact, senior-only team that integrates strategy, design, and engineering from day one.
                     </p>
-                    <p className="mb-7">
-                      Today, we're the partner you call when you need a credible plan this week and a live product next month. We scope with risks up front, demo weekly, and make decisions with data—so you always know what’s shipped, what’s next, and why it matters.
+                                      <p className="mb-7">
+                      Today, we&apos;re the partner you call when you need a credible plan this week and a live product next month. We scope with risks up front, demo weekly, and make decisions with data—so you always know what’s shipped, what’s next, and why it matters.
                     </p>
 
                     <ul className="mb-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -228,7 +241,7 @@ function About() {
                   </span>
                   <h2 className={`mt-3 ${H2}`}>Build with speed and signal.</h2>
                   <p className={`mt-4 text-black/80 ${LEAD}`}>
-                    Our mission is to give founders the straightest possible line from "great idea" to "in-market." We ruthlessly cut scope to what matters, validate with real users, and invest engineering time where it moves the metric—not the roadmap slide.
+                    Our mission is to give founders the straightest possible line from &quot;great idea&quot; to &quot;in-market.&quot; We ruthlessly cut scope to what matters, validate with real users, and invest engineering time where it moves the metric—not the roadmap slide.
                   </p>
 
                   <div className="mt-6 flex flex-wrap gap-3">
@@ -291,7 +304,7 @@ function About() {
                   { title: "Clarity Over Cleverness", desc: "Write it down. Make it smaller. Choose the order. Clear thinking beats clever planning every time.", delay: "0.05" },
                   { title: "Prototype Early & Often", desc: "Clickable flows and vertical slices reveal the truth much faster than slideware and endless debates.", delay: "0.1" },
                   { title: "Build for Learning", desc: "Every feature ships with telemetry and a rollback path, so we can move fast without breaking things.", delay: "0.15" },
-                  { title: "Quality is a Prerequisite", desc: "Accessible UI, resilient APIs, and thoughtful empty states. We build products that don't crack under growth.", delay: "0.2" },
+                  { title: "Quality is a Prerequisite", desc: "Accessible UI, resilient APIs, and thoughtful empty states. We build products that don&apos;t crack under growth.", delay: "0.2" },
                   { title: "One Team, One Slack", desc: "We operate like your in-house squad, not a black-box vendor. You get direct access and daily updates.", delay: "0.25" },
                   { title: "Own the Outcome", desc: "We measure our success by your metrics: activation, retention, and revenue. If a task won’t move a KPI, we challenge it.", delay: "0.3" },
                 ].map((item, i) => (
@@ -535,7 +548,8 @@ function About() {
             </div>
           </div>
         </section>
-
+ <JsonLd id="ld-about" data={web} />
+      <JsonLd id="ld-breadcrumb-about" data={crumbs} />
       </main>
       <Footer_01 />
     </>

@@ -6,6 +6,8 @@ import '@/styles/globals.css';
 import '@/styles/vendors/menu.css';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import ClientLayout from './ClientLayout';
+import JsonLd from "@/components/seo/JsonLd";
+import { orgLD, websiteLD } from "@/lib/jsonld";
 
 const DMSans = localFont({
   src: '../fonts/DMSans-Bold.woff2',
@@ -30,19 +32,13 @@ const SpaceGrotesk = localFont({
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata = {
-  metadataBase: new URL('https://devibi.com'),
-  title: { default: 'Devibi', template: '%s | Devibi' },
-  description: 'Launch a revenue-ready B2B SaaS in 8–12 weeks.',
-  alternates: { canonical: '/' },
-  openGraph: {
-    type: 'website',
-    url: 'https://devibi-ten.vercel.app',
-    title: 'Devibi',
-    description: 'Launch a revenue-ready B2B SaaS in 8–12 weeks.',
-    siteName: 'Devibi',
-  },
-  twitter: { card: 'summary_large_image', title: 'Devibi', description: 'Launch B2B SaaS in 8–12 weeks.' },
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.devibi.com"),
+  title: { default: "Devibi", template: "%s — Devibi" },
+  description: "We design & build B2B SaaS that ships cleanly to dev."
 };
+
+export const dynamic = "force-static";
+export const revalidate = 86400;
 
 export default function RootLayout({ children }) {
   return (
@@ -54,6 +50,8 @@ export default function RootLayout({ children }) {
           {children}
         </ClientLayout>
         <SpeedInsights />
+        <JsonLd id="ld-org" data={orgLD} />
+        <JsonLd id="ld-website" data={websiteLD} />
       </body>
     </html>
   );

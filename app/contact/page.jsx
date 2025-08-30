@@ -13,8 +13,39 @@ import Footer_01 from "@/components/footer/Footer";
 import Header_01 from "@/components/header/Header_01";
 import Image from "next/image";
 import Link from "next/link";
+import JsonLd from "@/components/seo/JsonLd";
+import { webPageLD, breadcrumbLD } from "@/lib/jsonld";
 
 function Contact() {
+  const web = webPageLD({
+    canonical: "/contact",
+    title: "Contact | Devibi",
+    description: "Get in touch with Devibi for B2B SaaS design and development.",
+    type: "ContactPage",
+  });
+
+  const crumbs = breadcrumbLD([
+    { name: "Home", item: "/" },
+    { name: "Contact", item: "/contact" },
+  ]);
+
+  // Optional: inline an Organization object including contactPoint
+  const orgContact = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Devibi",
+    url: "https://www.devibi.com",
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "hello@devibi.com",
+        telephone: "+1-012-345-6789",
+        availableLanguage: ["en"],
+      },
+    ],
+  };
+
   return (
     <>
       <Header_01 />
@@ -53,7 +84,7 @@ function Contact() {
                   {/* Section Content Block */}
                   <div className="mb-8 text-left lg:mb-16 xl:mb-6">
                     <div className="mx-auto md:mx-0 md:max-w-none">
-                      <h2>Let's scope your next release.</h2>
+                      <h2>Let&apos;s scope your next release.</h2>
                     </div>
                   </div>
                   {/* Section Content Block */}
@@ -330,7 +361,7 @@ function Contact() {
               {/* Section Content Block */}
               <div className="mb-10 text-center lg:mb-16 xl:mb-20">
                 <div className="mx-auto md:max-w-xs lg:max-w-xl xl:max-w-[950px]">
-                  <h2 className="text-white">We're a remote team, but happy to meet.</h2>
+                  <h2 className="text-white">We&apos;re a remote team, but happy to meet.</h2>
                 </div>
               </div>
               {/* Map Block */}
@@ -387,6 +418,9 @@ function Contact() {
         </section>
         {/*...::: Map Section End :::... */}
       </main>
+      <JsonLd id="ld-contactpage" data={web} />
+      <JsonLd id="ld-breadcrumb-contact" data={crumbs} />
+      <JsonLd id="ld-org-contact" data={orgContact} />
       <Footer_01 />
     </>
   );

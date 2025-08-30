@@ -95,8 +95,8 @@ const BTN_INVERT =
                       </div>
                   </div>
               </div>
-              <div class="mx-auto mb-12 max-w-[715px] text-center lg:mb-16 jos" bis_skin_checked="1" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
-                <p class="text-lg leading-[1.55] lg:text-[21px]">Designing and developing products for startups backed by</p>
+              <div className="jos mx-auto mb-12 max-w-[715px] text-center lg:mb-16 jos" bis_skin_checked="1" data-jos_once="1" data-jos_animation="fade-up" data-jos_timingfunction="ease" data-jos_duration="0.7" data-jos_delay="0.5" data-jos_counter="1">
+                <p className="text-lg leading-[1.55] lg:text-[21px]">Designing and developing products for startups backed by</p>
                 </div>
 
               <BrandSlider />
@@ -316,7 +316,7 @@ const BTN_INVERT =
                       Our fixed-price Launch Blueprint validates your idea before you commit to a full build. In one week, you get a clickable prototype, user feedback, a clear technical roadmap, and a fixed-price proposal for your MVP.
                     </p>
                     <p className="mb-7 last:mb-0">
-                      This gives you a clear "go/no-go" decision point, backed by data, so you can invest with confidence or pivot before it's too late.
+                      This gives you a clear &quot;go/no-go&quot; decision point, backed by data, so you can invest with confidence or pivot before it&apos;s too late.
                     </p>
                   </div>
                 </div>
@@ -346,13 +346,13 @@ const BTN_INVERT =
 
                   <div className={LEAD}>
                     <p className="mb-7 last:mb-0">
-                      Launching is just the beginning. A successful SaaS product is one that users activate, adopt, and can't live without. That's why we don't stop at shipping code.
+                      Launching is just the beginning. A successful SaaS product is one that users activate, adopt, and can&apos;t live without. That&apos;s why we don&apos;t stop at shipping code.
                     </p>
 
                     <ul className="lg:mt-12 font-dmSans text-xl leading-tight tracking-tighter text-black lg:text-[28px]">
                       {[
                         "Improve onboarding completion rates",
-                        "Shorten time-to-first-value ('Aha!' moment)",
+                        "Shorten time-to-first-value (&apos;Aha!&apos; moment)",
                         "Reduce customer support load",
                       ].map((li) => (
                         <li key={li} className="mb-5 flex items-start gap-x-3">
@@ -423,7 +423,7 @@ const BTN_INVERT =
                         icon: "icon-black-work-process-2.svg",
                         title: "MVP Sprint",
                         copy:
-                          "We build your core product in 8-12 weeks, with weekly demos to ensure we're on the right track.",
+                          "We build your core product in 8-12 weeks, with weekly demos to ensure we&apos;re on the right track.",
                         href: "/services/mvp-sprint",
                       },
                       {
@@ -755,7 +755,7 @@ const BTN_INVERT =
               className="jos mb-10 pt-40 text-center lg:mb-16 xl:mb-20"
               data-jos_animation="fade"
             >
-              <p className={`mb-3 font-semibold ${MICRO}`}>Why We're Different</p>
+              <p className={`mb-3 font-semibold ${MICRO}`}>Why We&apos;re Different</p>
               <h2 className={H2}>Built for founders who need outcomes</h2>
               <p className={`mx-auto mt-4 max-w-[760px] text-black/70 ${LEAD}`}>
                 We focus on MVP speed, clean delivery, and the growth metrics that matter from day one. No fluff.
@@ -776,7 +776,7 @@ const BTN_INVERT =
                       n: "2",
                       t: "Activation-Obsessed",
                       c:
-                        "We don't just ship code. We instrument analytics and run experiments to ensure users get to their 'Aha!' moment, faster.",
+                        "We don&apos;t just ship code. We instrument analytics and run experiments to ensure users get to their &apos;Aha!&apos; moment, faster.",
                     },
                     {
                       n: "3",
@@ -805,7 +805,7 @@ const BTN_INVERT =
                     {
                       t: "Radical Transparency",
                       c:
-                        "With weekly demos and full access to our project boards, you're never in the dark.",
+                        "With weekly demos and full access to our project boards, you&apos;re never in the dark.",
                     },
                     {
                       t: "Practical AI, Not Science Projects",
@@ -882,7 +882,7 @@ const BTN_INVERT =
 
                   <div className={LEAD}>
                     <p className="mb-7 last:mb-0">
-                      We believe in clear scope, weekly demos, and measurable outcomes. If you have a different question, we're happy to answer it on a call.
+                      We believe in clear scope, weekly demos, and measurable outcomes. If you have a different question, we&apos;re happy to answer it on a call.
                     </p>
                     <Link
                       href="/contact"
@@ -924,7 +924,7 @@ const BTN_INVERT =
           <div className="mb-6 space-y-3">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-white/70">
               <span className="h-2 w-2 rounded-full bg-colorOrangyRed" />
-              Let’s talk
+              Let&apos;s talk
             </span>
             <h2 className={`${H2} text-white`}>
               Ready to Build a Product Your Customers Love?
@@ -933,7 +933,7 @@ const BTN_INVERT =
 
           {/* Lead */}
           <p className={`${LEAD} text-white/90 max-w-2xl`}>
-            Send your goals and constraints. We’ll reply within 24–48 hours with a
+            Send your goals and constraints. We&apos;ll reply within 24–48 hours with a
             scoped plan, risks, and a price band. If it’s a fit, we start with a
             short discovery and a week-one demo plan.
           </p>

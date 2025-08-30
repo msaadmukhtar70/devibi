@@ -1,50 +1,70 @@
-import { ALL_SERVICES } from '../lib/services';
+// app/sitemap.js
+// Refresh the sitemap hourly
+export const revalidate = 3600;
 
-export default function sitemap() {
-  const base = 'https://devibi-ten.vercel.app';
+import { ALL_SERVICES } from "@/lib/services";
+import { BLOGS } from "@/lib/blogs";
+import { CASES } from "@/lib/cases";
+
+// Normalize site (no trailing slash). Pick ONE canonical domain and use it everywhere.
+const SITE =
+  (process.env.NEXT_PUBLIC_SITE_URL || "https://www.devibi.com").replace(/\/$/, "");
+
+function toDate(input, fallback = new Date()) {
+  const d = input ? new Date(input) : null;
+  return d && !Number.isNaN(+d) ? d : fallback;
+}
+
+export default async function sitemap() {
   const now = new Date();
 
-  // Static routes
-  const staticUrls = [
-    '/',
-    '/about',
-    '/contact',
-    '/pricing',
-    '/services',
-    '/portfolio',
-    '/blogs',
-    '/team',
-    '/faq-1',
-  ];
-
-  // Dynamic service routes
-  const serviceUrls = ALL_SERVICES.map(service => `/services/${service.slug}`);
-
-  // Sample portfolio and blog routes - you can expand these with actual data later
-  const portfolioUrls = [
-    '/portfolio/acme-insights',
-    '/portfolio/tech-startup-mvp',
-    '/portfolio/fintech-redesign',
-  ];
-
-  const blogUrls = [
-    '/blogs/ai-integration-for-startups',
-    '/blogs/saas-design-best-practices',
-    '/blogs/mvp-development-guide',
-  ];
-
-  // Combine all URLs
-  const allUrls = [
-    ...staticUrls,
-    ...serviceUrls,
-    ...portfolioUrls,
-    ...blogUrls,
-  ];
-
-  return allUrls.map(url => ({
-    url: base + url,
+  // Static sections
+  const staticRoutes = [
+    { path: "/",            cf: "weekly",  pr: 1.0 },
+    { path: "/about",       cf: "monthly", pr: 0.6 },
+    { path: "/services",    cf: "weekly",  pr: 0.8 },
+    { path: "/blogs",       cf: "daily",   pr: 0.7 },
+    { path: "/portfolio",   cf: "weekly",  pr: 0.7 },
+    { path: "/pricing",     cf: "monthly", pr: 0.6 },
+    { path: "/contact",     cf: "yearly",  pr: 0.4 },
+    { path: "/faq",         cf: "monthly", pr: 0.5 },
+    { path: "/team",        cf: "monthly", pr: 0.5 },
+  ].map(({ path, cf, pr }) => ({
+    url: `${SITE}${path}`,
     lastModified: now,
-    changeFrequency: url === '/' ? 'daily' : url.includes('/blogs') ? 'weekly' : 'monthly',
-    priority: url === '/' ? 1.0 : url.includes('/services') || url === '/pricing' ? 0.8 : 0.6,
+    changeFrequency: cf,
+    priority: pr,
   }));
+
+  // Services
+  const serviceRoutes = (ALL_SERVICES || [])
+    .filter((s) => !s.draft)
+    .map((s) => ({
+      url: `${SITE}/services/${s.slug}`,
+      lastModified: toDate(s.updatedAt || s.lastModified, now),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    }));
+
+  // Blogs
+  const blogRoutes = (BLOGS || [])
+    .filter((b) => !b.draft)
+    .map((b) => ({
+      url: `${SITE}/blogs/${b.slug}`,
+      lastModified: toDate(b.updatedAt || b.date, now),
+      changeFrequency: "daily",
+      priority: 0.7,
+    }));
+
+  // Case studies / portfolio
+  const caseRoutes = (CASES || [])
+    .filter((c) => !c.draft)
+    .map((c) => ({
+      url: `${SITE}/portfolio/${c.slug}`,
+      lastModified: toDate(c.updatedAt || c.lastModified, now),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    }));
+
+  return [...staticRoutes, ...serviceRoutes, ...blogRoutes, ...caseRoutes];
 }

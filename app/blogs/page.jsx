@@ -1,21 +1,25 @@
-// Force SSG + ISR (daily) and block SSR
-export const revalidate = 86400;
-export const dynamic = 'error';
-
+import { BLOGS } from "@/lib/blogs";
+import { baseMeta, urlFor } from "@/lib/seo/meta";
+import { breadcrumbLD, itemListLD } from "@/lib/jsonld";
+import JsonLd from "@/components/seo/JsonLd";
 import Header_01 from "@/components/header/Header_01";
 import Footer_01 from "@/components/footer/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import { BLOGS, ALL_BLOGS } from "@/lib/blogs";
 import BlogsClient from "./BlogsClient";
 import { Suspense } from "react";
 
-// SEO Optimized Metadata
-export const metadata = {
-  title: "The Devibi Playbook | Actionable B2B SaaS Strategies",
-  description: "Go beyond theory. Our blog delivers actionable playbooks on product development, user activation, and scaling for B2B SaaS founders.",
-  alternates: { canonical: '/blogs' },
-};
+export const dynamic = "force-static";
+export const revalidate = 86400;
+
+export function generateMetadata() {
+  const canonical = urlFor("/blogs");
+  return baseMeta({
+    title: "Blog",
+    description: "Insights on building and growing B2B SaaS.",
+    canonical
+  });
+}
 
 function formatDate(d) {
   return new Date(d).toLocaleDateString("en-US", {
@@ -29,7 +33,13 @@ function toParam(str = "") {
   return encodeURIComponent(str);
 }
 
-export default function BlogsPage() {
+export default function Page() {
+  const canonical = urlFor("/blogs");
+  const crumbs = breadcrumbLD([{ name: "Home", item: urlFor("/") }, { name: "Blog", item: canonical }]);
+  const list = itemListLD(
+    (BLOGS || []).slice(0, 10).map(b => ({ url: urlFor(`/blogs/${b.slug}`), name: b.title }))
+  );
+
   const sorted = [...BLOGS].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
@@ -90,7 +100,7 @@ export default function BlogsPage() {
                   <Suspense fallback={<div>Loading playbooks...</div>}>
                     <BlogsClient 
                       initialPosts={initialPosts}
-                      allBlogs={ALL_BLOGS}
+                      allBlogs={BLOGS}
                       showAllPosts={true}
                     />
                   </Suspense>
@@ -236,6 +246,8 @@ export default function BlogsPage() {
           </div>
         </section>
         {/*...::: Blog Section End :::... */}
+        <JsonLd id="ld-breadcrumb" data={crumbs} />
+        <JsonLd id="ld-itemlist" data={list} />
       </main>
       <Footer_01 />
     </>

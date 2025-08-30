@@ -4,9 +4,36 @@ export const dynamic = 'error';
 
 // SEO Optimized Metadata
 export const metadata = {
+  metadataBase: new URL('https://www.devibi.com'),
   title: 'B2B SaaS Development & Activation Services | Devibi',
-  description: 'A service for every stage of your journey. We offer a fixed-price Launch Blueprint, MVP Sprints, Activation Lifts, and Practical AI Pilots to help you succeed.',
+  description:
+    'A service for every stage of your journey. We offer a fixed-price Launch Blueprint, MVP Sprints, Activation Lifts, and Practical AI Pilots to help you succeed.',
   alternates: { canonical: '/services' },
+  openGraph: {
+    type: 'website',
+    url: '/services',
+    title: 'B2B SaaS Development & Activation Services | Devibi',
+    description:
+      'A service for every stage of your journey. We offer a fixed-price Launch Blueprint, MVP Sprints, Activation Lifts, and Practical AI Pilots to help you succeed.',
+    siteName: 'Devibi',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'B2B SaaS Development & Activation Services | Devibi',
+    description:
+      'A service for every stage of your journey. We offer a fixed-price Launch Blueprint, MVP Sprints, Activation Lifts, and Practical AI Pilots to help you succeed.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+  },
 };
 
 import Footer_01 from "@/components/footer/Footer";
@@ -14,8 +41,37 @@ import Header_01 from "@/components/header/Header_01";
 import ServicesAccordion from "@/components/ServicesAccordion";
 import Image from "next/image";
 import Link from "next/link";
+import { ALL_SERVICES } from "@/lib/services";
+import { generateServiceListJsonLd } from "@/lib/jsonld/services";
+import JsonLd from "@/components/seo/JsonLd";
+import { SITE, orgLD, websiteLD, breadcrumbLD } from "@/lib/jsonld";
 
 function Services() {
+   const jsonLd = generateServiceListJsonLd(ALL_SERVICES);
+   const breadcrumb = breadcrumbLD([
+    { name: "Home", item: "/" },
+    { name: "Our Services", item: "/services" },
+   ]);
+
+  // BreadcrumbList JSON-LD (absolute URLs for SEO)
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.devibi.com/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Our Services",
+        item: "https://www.devibi.com/services",
+      },
+    ],
+  };
 
   // Typography tokens (keep styles consistent site-wide)
   const H1 =
@@ -36,6 +92,17 @@ function Services() {
 
   return (
     <>
+      {/* ItemList JSON-LD (existing) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      {/* BreadcrumbList JSON-LD (added) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+
       <Header_01 />
       <main className="main-wrapper relative overflow-hidden">
         {/*...::: Breadcrumb :::...*/}
@@ -873,6 +940,10 @@ function Services() {
             </div>
           </div>
         </section>
+        <JsonLd id="ld-organization" data={orgLD} />
+       <JsonLd id="ld-website" data={websiteLD} />
+       <JsonLd id="ld-breadcrumb" data={breadcrumb} />
+       <JsonLd id="ld-services-itemlist" data={jsonLd} />
       </main>
       <Footer_01 />
     </>

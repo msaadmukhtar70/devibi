@@ -189,7 +189,7 @@ export default function FaqClient() {
                                 {/* Section Content Block */}
                                 <div className="text-left text-lg leading-[1.4] text-white lg:text-[21px]">
                                     <p className="mb-7 last:mb-0">
-                                        If you don't see your question here, book a free call. We’re happy to talk through your specific goals, constraints, and timeline. No obligation, no sales pitch.
+                                        If you don&apos;t see your question here, book a free call. We’re happy to talk through your specific goals, constraints, and timeline. No obligation, no sales pitch.
                                     </p>
                                 </div>
                                 <ul className="mt-10 flex flex-col gap-6 font-dmSans text-[30px] tracking-[1.33] lg:mt-14 lg:gap-y-3 xl:mt-[70px]">
